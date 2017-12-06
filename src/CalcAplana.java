@@ -1,3 +1,6 @@
+//Задание №1: Калькулятор с простыми функциями (реализовано на swing)
+
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
