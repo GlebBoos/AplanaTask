@@ -17,11 +17,6 @@ class CalcAplana implements ActionListener
     static double a=0,b=0,result=0;
     static int operator=0;
 
-    public static void main(String...s)
-    {
-        new CalcAplana();
-    }
-
     CalcAplana()
     {
         //Создаем форму для калькулятора
@@ -79,126 +74,70 @@ class CalcAplana implements ActionListener
         bdiv.setBackground(new Color(255, 128, 0)); bdec.setBackground(new Color(255, 128, 0));
         bsub.setBackground(new Color(255, 128, 0)); bC.setBackground(new Color(255, 128, 0));
 
-
-        x_1.addActionListener(this);
-        x_2.addActionListener(this);
-        x_3.addActionListener(this);
-        x_4.addActionListener(this);
-        x_5.addActionListener(this);
-        x_6.addActionListener(this);
-        x_7.addActionListener(this);
-        x_8.addActionListener(this);
-        x_9.addActionListener(this);
-        x_0.addActionListener(this);
-        badd.addActionListener(this);
-        bdiv.addActionListener(this);
-        bmul.addActionListener(this);
-        bsub.addActionListener(this);
-        bdec.addActionListener(this);
-        beq.addActionListener(this);
-        bCE.addActionListener(this);
-        bC.addActionListener(this);
-
-
-
+        //Реалзиация метода ActionListener для кнопок
+        x_1.addActionListener(this); x_2.addActionListener(this); x_3.addActionListener(this);
+        x_4.addActionListener(this); x_5.addActionListener(this); x_6.addActionListener(this);
+        x_7.addActionListener(this); x_8.addActionListener(this); x_9.addActionListener(this);
+        x_0.addActionListener(this); badd.addActionListener(this); bdiv.addActionListener(this);
+        bmul.addActionListener(this); bsub.addActionListener(this); bdec.addActionListener(this);
+        beq.addActionListener(this); bCE.addActionListener(this); bC.addActionListener(this);
 
         f.setLayout(null);
         f.setVisible(true);
         f.setResizable(false);
     }
-
-
-
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getSource()==x_1)
-            t.setText(t.getText().concat("1"));
-
-        if(e.getSource()==x_2)
-            t.setText(t.getText().concat("2"));
-
-        if(e.getSource()==x_3)
-            t.setText(t.getText().concat("3"));
-
-        if(e.getSource()==x_4)
-            t.setText(t.getText().concat("4"));
-
-        if(e.getSource()==x_5)
-            t.setText(t.getText().concat("5"));
-
-        if(e.getSource()==x_6)
-            t.setText(t.getText().concat("6"));
-
-        if(e.getSource()==x_7)
-            t.setText(t.getText().concat("7"));
-
-        if(e.getSource()==x_8)
-            t.setText(t.getText().concat("8"));
-
-        if(e.getSource()==x_9)
-            t.setText(t.getText().concat("9"));
-
-        if(e.getSource()==x_0)
-            t.setText(t.getText().concat("0"));
-
-        if(e.getSource()==bdec)
-            t.setText(t.getText().concat("."));
-
+        if(e.getSource()==x_1) t.setText(t.getText().concat("1"));
+        if(e.getSource()==x_2) t.setText(t.getText().concat("2"));
+        if(e.getSource()==x_3) t.setText(t.getText().concat("3"));
+        if(e.getSource()==x_4) t.setText(t.getText().concat("4"));
+        if(e.getSource()==x_5) t.setText(t.getText().concat("5"));
+        if(e.getSource()==x_6) t.setText(t.getText().concat("6"));
+        if(e.getSource()==x_7) t.setText(t.getText().concat("7"));
+        if(e.getSource()==x_8) t.setText(t.getText().concat("8"));
+        if(e.getSource()==x_9) t.setText(t.getText().concat("9"));
+        if(e.getSource()==x_0) t.setText(t.getText().concat("0"));
+        if(e.getSource()==bdec) t.setText(t.getText().concat("."));
         if(e.getSource()==badd)
         {
             a=Double.parseDouble(t.getText());
             operator=1;
             t.setText("");
         }
-
         if(e.getSource()==bsub)
         {
             a=Double.parseDouble(t.getText());
             operator=2;
             t.setText("");
         }
-
         if(e.getSource()==bmul)
         {
             a=Double.parseDouble(t.getText());
             operator=3;
             t.setText("");
         }
-
         if(e.getSource()==bdiv)
         {
             a=Double.parseDouble(t.getText());
             operator=4;
             t.setText("");
         }
-
         if(e.getSource()==beq)
         {
             b=Double.parseDouble(t.getText());
-
             switch(operator)
             {
-                case 1: result=a+b;
-                    break;
-
-                case 2: result=a-b;
-                    break;
-
-                case 3: result=a*b;
-                    break;
-
-                case 4: result=a/b;
-                    break;
-
+                case 1: result=a+b; break;
+                case 2: result=a-b; break;
+                case 3: result=a*b; break;
+                case 4: result=a/b; break;
                 default: result=0;
             }
-
-            t.setText(""+result);
+            t.setText(""+String.format("%.2f",result));
         }
-
         if(e.getSource()==bC)
             t.setText("");
-
         if(e.getSource()==bCE)
         {
             String s=t.getText();
