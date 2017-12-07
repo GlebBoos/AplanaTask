@@ -13,6 +13,7 @@ class RandomMassive
         //Scanner in = new Scanner(System.in);
         //System.out.println("Введите размер массива: ");
         //n = in.nextInt();
+        System.out.println("Задача №4 (Боос Глеб)");
         arr = new int [n];
         for(int i = 0; i < arr.length; i++ ){
             arr[i] = (int)(-10+(Math.random()*(10+10)));

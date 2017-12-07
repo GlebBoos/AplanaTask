@@ -19,8 +19,8 @@ public class MainClass
             System.out.println("Выберите нобходимый пункт меню: ");
             System.out.println("1 - Калькулятор ");
             System.out.println("2-  Поиск максимально длинного слова");
-            System.out.println("3-  *не создана*");
-            System.out.println("4-  *не создана*");
+            System.out.println("3-  Поменять местами MAX и MIN в рандомном массиве");
+            System.out.println("4-  Подсчет подарка");
             System.out.println("0-  Выход из задачи");
             int x = in.nextInt();
             switch (x)
@@ -28,7 +28,7 @@ public class MainClass
                 case 1: new CalcAplana(); break;
                 case 2: new MaxLengthElement(); break;
                 case 3: new RandomMassive(); break;
-                //case 4:
+                case 4: new NewYearPresent(); break;
                 case 0: f=false; break;
                 default: System.out.println("Неверно введено значение");
             }
