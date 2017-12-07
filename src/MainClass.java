@@ -27,7 +27,7 @@ public class MainClass
             {
                 case 1: new CalcAplana(); break;
                 case 2: new MaxLengthElement(); break;
-                //case 3:
+                case 3: new RandomMassive(); break;
                 //case 4:
                 case 0: f=false; break;
                 default: System.out.println("Неверно введено значение");
