@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.net.URL;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
+//import javax.swing.ImageIcon;
 
 
 class CalcAplana implements ActionListener
