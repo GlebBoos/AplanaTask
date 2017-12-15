@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class Present3
 {
-    String country;
+    String country; //Страна производитель
 }
 class Present2 extends Present3
 {
