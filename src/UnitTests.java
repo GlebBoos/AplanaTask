@@ -9,39 +9,61 @@ import org.junit.runner.JUnitCore;
 
 class UnitTests
 {
-    static int getSum(int x, int y)
-    {
+    static int Sum(int x, int y) {
         return x+y;
     }
-    static int getSubtraction(int x, int y)
-    {
-        return x-y-1;
+    static int Subtraction(int x, int y) {
+        return x-y;
+    }
+    static int Multiplication(int x, int y) {
+        return x*y;
+    }
+    static int Div(int x, int y) {
+        return x/y;
+    }
+    static int Mod(int x, int y) {
+        return x%y;
     }
     class TestCalc {
 
         @Test
-        public void getSumTest() {
+        public void SumTest() {
             UnitTests c = new UnitTests();
-            assertEquals(50, c.getSum(20, 30));
+            assertEquals(50, c.Sum(20, 30));
         }
 
         @Test
-        public void getSubtractionTest() {
+        public void SubtractionTest() {
             UnitTests c = new UnitTests();
-            assertEquals(-10, c.getSubtraction(20, 30));
+            assertEquals(-10, c.Subtraction(20, 30));
+        }
+        @Test
+        public void MultiplicationTest() {
+            UnitTests c = new UnitTests();
+            assertEquals(6, c.Multiplication(2, 3));
+        }
+        @Test
+        public void DivTest() {
+            UnitTests c = new UnitTests();
+            assertEquals(2, c.Div(10, 5));
+        }
+        @Test
+        public void ModTest() {
+            UnitTests c = new UnitTests();
+            assertEquals(1, c.Mod(82, 9));
         }
     }
     UnitTests()
     {
+        System.out.println("");
+        System.out.println("Задание №7 (Боос Глеб) ");
+        System.out.println("");
 
+        JUnitCore core = new JUnitCore();
+        core.run(TestCalc.class);
         JUnitCore runner = new JUnitCore();
         Result result = runner.run(TestCalc.class);
-        System.out.println("run tests: " + result.getRunCount());
-        System.out.println("failed tests: " + result.getFailureCount());
-        System.out.println("ignored tests: " + result.getIgnoreCount());
-        System.out.println("success: " + result.wasSuccessful());
-
-
+        System.out.println("Запущено тестов: " + result.getRunCount());
     }
 }
 
