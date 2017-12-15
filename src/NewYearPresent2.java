@@ -4,8 +4,11 @@ import java.util.Scanner;
 //import java.io.IOException;
 
 
-
-class Present2
+class Present3
+{
+    String country;
+}
+class Present2 extends Present3
 {
     String name; //Название сладости
     float weight; // Вес сладости
@@ -15,47 +18,19 @@ class Present2
 class NewYearPresent2
 {
     //Создание меню для работы с задачей
-    public void menu()
+    static void menu()
     {
         System.out.println("Задание №6 (Боос Глеб) ");
         System.out.println("Выберите нобходимый пункт меню: ");
-        System.out.println("1 - Ввод данных по кондитерским изделиям ");
-        System.out.println("2-  Добавление новых данных в таблицу");
-        System.out.println("3-  Удаление данных из таблицы");
-        System.out.println("4-  Подсчет показателей");
-        System.out.println("5-  Вывод текущей таблицы");
+        System.out.println("1-  Добавление новых данных в таблицу");
+        System.out.println("2-  Удаление данных из таблицы");
+        System.out.println("3-  Подсчет показателей");
+        System.out.println("4-  Вывод текущей таблицы");
         System.out.println("0-  Выход из задачи");
     }
 
-    //1- Ввод элементов массива по классу
-    public void addarray(String N, float x, float y, int i)
-    {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите название сладости ");
-        N = in.nextLine();
-        System.out.println("Введите вес сладости ");
-        x = in.nextFloat();
-        System.out.println("Введите цену сладости ");
-        y= in.nextFloat();
-        System.out.println("Введите ID сладости ");
-        i = in.nextInt();
-        System.out.println("");
-    }
-
-    //2-Функция добавления элемента массива
-    public void addElement(Present2[] arr, int addIdx)
-    {
-        int n=arr.length;
-        n=n+1;
-        addarray(arr[n].name,arr[n].weight,arr[n].price,arr[n].id);
-    }
-    //3-Функция удаление элемента массива
-    public void removeElement(Object[] arr, int removedIdx)
-    {
-        System.arraycopy(arr, removedIdx + 1, arr, removedIdx, arr.length - 1 - removedIdx);
-    }
     //4-Подсчет показателей
-    public void pokaz(Present2[] arr)
+    static void CountDate(Present2[] arr)
     {
         int n=arr.length;
         double sumW=0.0,sumCost=0.0;
@@ -69,57 +44,24 @@ class NewYearPresent2
         System.out.printf("Суммарная стоимость всех сладостей и всего подарка: %.2f \n",sumCost);
         System.out.println("");
         System.out.println("");
-        for (int i=0;i<n;i++) {
-            System.out.printf("%s | %.2f | %.2f | %d |\n",arr[i].name,arr[i].weight,arr[i].price,arr[i].id);
-        }
-        System.out.println("");
-        System.out.println("");
     }
     //5-Вывод текущей таблицы
-    public void datePrint(Present2[] arr)
+    static void datePrint(Present2[] arr)
     {
         int n=arr.length;
         for (int i=0;i<n;i++) {
-            System.out.printf("%s | %.2f | %.2f | %d |\n",arr[i].name,arr[i].weight,arr[i].price,arr[i].id);
+            System.out.printf("%d | %s | %.2f | %.2f | %d | %s |\n",i+1,arr[i].name,arr[i].weight,arr[i].price,arr[i].id,arr[i].country);
         }
         System.out.println("");
         System.out.println("");
-    }
-
-
-    static void main()
-    {
-        boolean f;
-        f=true;
-        while (f) {
-            Scanner in = new Scanner(System.in);
-
-            int x = in.nextInt();
-            switch (x) {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 0:
-                    f = false;
-                    break;
-                default:
-                    System.out.println("Неверно введено значение");
-            }
-        }
     }
 
     NewYearPresent2()
     {
-        int n;
+        int n,x;
+        boolean f;
+        f=true;
         Scanner ini = new Scanner(System.in);
-
         System.out.println("Введите кол-во подарков: ");
         n = ini.nextInt();
         Present2 Box[]= new Present2[n];
@@ -136,25 +78,87 @@ class NewYearPresent2
             Box[i].price = in.nextFloat();
             System.out.println("Введите ID сладости ");
             Box[i].id = in.nextInt();
+            System.out.println("Введите страну производителя");
+            Box[i].country = in.nextLine();
             System.out.println("");
         }
-        double sumW=0.0,sumCost=0.0;
-        for (int i=0;i<n;i++) {
-            sumW=sumW+Box[i].weight;
-            sumCost=sumCost+Box[i].price;
+        while (f)
+        {
+            Scanner ing = new Scanner(System.in);
+            menu();
+            x = ing.nextInt();
+            switch (x) {
+                case 1: //addElement(Box);
+                    {
+                        int n1=n+1;
+                        Present2 Box1[]= new Present2[n1];
+                        for (int i=0;i<n1;i++) {
+                            Box1[i]=new Present2();
+                        }
+                        for (int i=0;i<n;i++) {
+                            Box1[i]=Box[i];
+                        }
+                        Scanner inr = new Scanner(System.in);
+                        System.out.println("Введите название сладости ");
+                        Box1[n].name = inr.nextLine();
+                        System.out.println("Введите вес сладости ");
+                        Box1[n].weight = inr.nextFloat();
+                        System.out.println("Введите цену сладости ");
+                        Box1[n].price = inr.nextFloat();
+                        System.out.println("Введите ID сладости ");
+                        Box1[n].id = inr.nextInt();
+                        System.out.println("Введите страну производителя");
+                        Box1[n].country = inr.nextLine();
+                        System.out.println("");
+                        Box=Box1;
+                        n++;
+                    }
+                    break;
+                case 2:
+                    {
+                        Scanner ini2 = new Scanner(System.in);
+                        System.out.println("Введите номер строки из таблицы, которую нужно удалить: ");
+                        System.out.println(" ");
+                        int j = ini2.nextInt();
+
+                        int n2=n-1;
+                        Present2 Box2[]= new Present2[n2];
+                        for (int i=0;i<n2;i++) {
+                            Box2[i]=new Present2();
+                        }
+                        if (j==1) {
+                            for (int i=1; i<n;i++)
+                                Box2[i-1]=Box[i];
+                        }
+                        if (j==n) {
+                            for (int i = 0; i<n2; i++)
+                                Box2[i] = Box[i];
+                        }
+                        if ((j!=n)&&(j!=1))
+                        {
+                            for (int i=0;i<j-1;i++) {
+                                Box2[i]=Box[i];
+                            }
+                            for (int i=j;i<n;i++) {
+                                Box2[i-1]=Box[i];
+                            }
+                        }
+                        Box=Box2;
+                        n--;
+                        //removeElement(Box,j);
+                    }
+                    break;
+                case 3: CountDate(Box);
+                    break;
+                case 4: datePrint(Box);
+                    break;
+                case 0:
+                    f = false;
+                    break;
+                default:
+                    System.out.println("Неверно введено значение");
+            }
         }
-        System.out.println("");
-        System.out.println("");
-        System.out.printf("Суммарный вес сладостей и всего подарка: %.2f \n",sumW);
-        System.out.printf("Суммарная стоимость всех сладостей и всего подарка: %.2f \n",sumCost);
-        System.out.println("");
-        System.out.println("");
-        for (int i=0;i<n;i++) {
-            System.out.printf("%s | %.2f | %.2f | %d |\n",Box[i].name,Box[i].weight,Box[i].price,Box[i].id);
-        }
-        System.out.println("");
-        System.out.println("");
-        //System.out.println("Введите данные по сладостям в подарке");
     }
 }
 

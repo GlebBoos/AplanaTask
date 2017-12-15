@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.io.IOException;
 
 
-public class MainClass
+ public class MainClass
 {
     public static void main(String... s) throws IOException, InterruptedException
     {
@@ -32,7 +32,7 @@ public class MainClass
                 case 3: new RandomMassive(); break;
                 case 4: new NewYearPresent(); break;
                 case 5: new NewYearPresent2(); break;
-                case 6: new UnitTests(); break;
+                //case 6: new UnitTests(); break;
                 case 0: f=false; break;
                 default: System.out.println("Неверно введено значение");
             }
