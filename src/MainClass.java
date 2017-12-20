@@ -21,8 +21,10 @@ import java.io.IOException;
             System.out.println("2-  Поиск максимально длинного слова");
             System.out.println("3-  Поменять местами MAX и MIN в рандомном массиве");
             System.out.println("4-  Подсчет подарка");
-            System.out.println("5-  Подсчет подарка 2.0");
-            System.out.println("6-  Вызов UNIT тестов для последней задачи");
+            System.out.println("5-  Подсчет подарка 2.0 (наследование)");
+            System.out.println("6-  Подсчет подарка 3.0 (коллекции) ");
+            System.out.println("7-  Вызов UNIT тестов для последней задачи");
+
             System.out.println("0-  Выход из задачи");
             int x = in.nextInt();
             switch (x)
@@ -32,7 +34,8 @@ import java.io.IOException;
                 case 3: new RandomMassive(); break;
                 case 4: new NewYearPresent(); break;
                 case 5: new NewYearPresent2(); break;
-                case 6: new UnitTests(); break;
+                case 6: new NewYearPresent3(); break;
+                case 7: new UnitTests(); break;
                 case 0: f=false; break;
                 default: System.out.println("Неверно введено значение");
             }
