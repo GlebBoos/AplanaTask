@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-class Present4
+class  Present4
 {
     ArrayList<String> name = new ArrayList<String>(); // Название сладсти
     ArrayList<String> weight = new ArrayList<String>(); // Вес сладости
@@ -23,21 +23,6 @@ class NewYearPresent3 {
         System.out.println("3-  Подсчет показателей");
         System.out.println("4-  Вывод текущей таблицы");
         System.out.println("0-  Выход из задачи");
-    }
-    static void CountDate(Present2[] arr)
-    {
-        int n=arr.length;
-        double sumW=0.0,sumCost=0.0;
-        for (int i=0;i<n;i++) {
-            sumW=sumW+arr[i].weight;
-            sumCost=sumCost+arr[i].price;
-        }
-        System.out.println("");
-        System.out.println("");
-        System.out.printf("Суммарный вес сладостей и всего подарка: %.2f \n",sumW);
-        System.out.printf("Суммарная стоимость всех сладостей и всего подарка: %.2f \n",sumCost);
-        System.out.println("");
-        System.out.println("");
     }
     NewYearPresent3()
     {
@@ -60,15 +45,64 @@ class NewYearPresent3 {
             Box.id.add(in.nextLine());
             System.out.println("");
         }
-        for (int i=0;i<n;i++) {
-            String a,b,c,d;
-            a=Box.name.get(i);
-            b=Box.weight.get(i);
-            c=Box.price.get(i);
-            d=Box.id.get(i);
-            System.out.printf(" | %s | %s | %s | %s | \n",a,b,c,d);
+        while (f) {
+            Scanner ing = new Scanner(System.in);
+            menu();
+            x = ing.nextInt();
+            switch (x) {
+                case 1: {
+                    Scanner in = new Scanner(System.in);
+                    System.out.println("Введите название сладости ");
+                    Box.name.add(in.nextLine());
+                    System.out.println("Введите вес сладости ");
+                    Box.weight.add(in.nextLine());
+                    System.out.println("Введите цену сладости ");
+                    Box.price.add(in.nextLine());
+                    System.out.println("Введите ID сладости ");
+                    Box.id.add(in.nextLine());
+                    System.out.println("");
+                }
+                break;
+                case 2: {
+                }
+                break;
+                case 3:{
+                    double sumW=0.0,sumCost=0.0;
+                    for (int i = 0; i < n; i++) {
+                        try {
+                            double x1 = Double.parseDouble(Box.weight.get(i));
+                            double y1 = Double.parseDouble(Box.price.get(i));
+                            sumW=sumW+x1;
+                            sumCost=sumCost+y1;
+                        }
+                        catch (NumberFormatException e) {
+                            System.err.println("Неверный формат числа");
+                        }
+                    }
+                    System.out.println("");
+                    System.out.println("");
+                    System.out.printf("Суммарный вес сладостей и всего подарка: %.2f \n",sumW);
+                    System.out.printf("Суммарная стоимость всех сладостей и всего подарка: %.2f \n",sumCost);
+                    System.out.println("");
+                    System.out.println("");
+                }
+                    break;
+                case 4:
+                    for (int i = 0; i < n; i++) {
+                        String a, b, c, d;
+                        a = Box.name.get(i);
+                        b = Box.weight.get(i);
+                        c = Box.price.get(i);
+                        d = Box.id.get(i);
+                        System.out.printf(" | %s | %s | %s | %s | \n", a, b, c, d);
+                    }
+                    break;
+                case 0:
+                    f = false;
+                    break;
+                default:
+                    System.out.println("Неверно введено значение");
+            }
         }
-        //System.out.println(Box.name.get(1));
-        //System.out.println(Box.name);
     }
 }
