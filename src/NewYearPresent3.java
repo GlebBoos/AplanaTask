@@ -61,9 +61,19 @@ class NewYearPresent3 {
                     System.out.println("Введите ID сладости ");
                     Box.id.add(in.nextLine());
                     System.out.println("");
+                    n++;
                 }
                 break;
                 case 2: {
+                    Scanner ini2 = new Scanner(System.in);
+                    System.out.println("Введите номер строки из таблицы, которую нужно удалить: ");
+                    System.out.println(" ");
+                    int j = ini2.nextInt();
+                    Box.name.remove(j-1);
+                    Box.weight.remove(j-1);
+                    Box.price.remove(j-1);
+                    Box.id.remove(j-1);
+                    n--;
                 }
                 break;
                 case 3:{
