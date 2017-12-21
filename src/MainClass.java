@@ -6,27 +6,44 @@
 // В новой версии добавлены все задачи+интерфейс для будущей задачи (понедельник 25.12.2017). Добавлен графический
 // интерфейс меню с выбором задач по кнопке. Весь данный класс основного меню был переработан.
 
-import java.util.Scanner;
 import java.io.IOException;
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import java.io.File;
+import java.io.IOException;
+import java.text.*;
+import javax.imageio.ImageIO;
 
 
-public class MainClass implements ActionListener
+public class MainClass extends JFrame implements ActionListener
 {
     JFrame fr; //Фрейм
     JButton z1, z2, z3, z4, z5, z6, z7, z8, z0; //Кнопки числовых значений
     boolean f;
 
-
     MainClass() {
+
             fr = new JFrame("Aplana Java Course 2.0 - Boos G.O.");
             fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            fr.setSize(400, 420);
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            fr.setSize(400, 520);
             fr.setLocationRelativeTo(null); //отцентровка
-            fr.getContentPane().setBackground(new Color(255, 255, 255));
+           // fr.getContentPane().setBackground(new Color(255, 255, 200));
+            Image icon = Toolkit.getDefaultToolkit().getImage("4.png");
+            fr.setIconImage(icon);
 
+
+            try {
+                fr.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("5.png")))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //fr.pack();
+            //fr.setUndecorated(true);
             z1 = new JButton("Задача 1: Калькулятор");
             z2 = new JButton("Задача 2: Поиск самого короткого слова");
             z3 = new JButton("Задача 3: Смена мест MAX и MIN в массиве Random ");
@@ -37,15 +54,16 @@ public class MainClass implements ActionListener
             z8 = new JButton("Задача 8: *Недоступно*");
             z0 = new JButton("Выход из программы");
 
-            z1.setBounds(10, 20, 365, 20);
-            z2.setBounds(10, 60, 365, 20);
-            z3.setBounds(10, 100, 365, 20);
-            z4.setBounds(10, 140, 365, 20);
-            z5.setBounds(10, 180, 365, 20);
-            z6.setBounds(10, 220, 365, 20);
-            z7.setBounds(10, 260, 365, 20);
-            z8.setBounds(10, 300, 365, 20);
-            z0.setBounds(10, 340, 365, 20);
+            z1.setBounds(10, 120, 365, 20);
+            z2.setBounds(10, 160, 365, 20);
+            z3.setBounds(10, 200, 365, 20);
+            z4.setBounds(10, 240, 365, 20);
+            z5.setBounds(10, 280, 365, 20);
+            z6.setBounds(10, 320, 365, 20);
+            z7.setBounds(10, 360, 365, 20);
+            z8.setBounds(10, 400, 365, 20);
+            z0.setBounds(10, 440, 365, 20);
+
 
             fr.add(z1);
             fr.add(z2);
@@ -57,15 +75,17 @@ public class MainClass implements ActionListener
             fr.add(z8);
             fr.add(z0);
 
-            z1.setBackground(new Color(255, 255, 255));
-            z2.setBackground(new Color(255, 255, 255));
-            z3.setBackground(new Color(255, 255, 255));
-            z4.setBackground(new Color(255, 255, 255));
-            z5.setBackground(new Color(255, 255, 255));
-            z6.setBackground(new Color(255, 255, 255));
-            z7.setBackground(new Color(255, 255, 255));
-            z8.setBackground(new Color(255, 255, 255));
-            z0.setBackground(new Color(255, 255, 255));
+
+            z1.setBackground(new Color(230, 255, 255));
+            z2.setBackground(new Color(230, 255, 255));
+            z3.setBackground(new Color(230, 255, 255));
+            z4.setBackground(new Color(230, 255, 255));
+            z5.setBackground(new Color(230, 255, 255));
+            z6.setBackground(new Color(230, 255, 255));
+            z7.setBackground(new Color(230, 255, 255));
+            z8.setBackground(new Color(230, 255, 255));
+            z0.setBackground(new Color(230, 255, 255));
+
 
             z1.addActionListener(this);
             z2.addActionListener(this);
@@ -93,6 +113,7 @@ public class MainClass implements ActionListener
         if(e.getSource()==z8) System.out.println("Данная задача недоступна до 25.12.2017");
         if(e.getSource()==z0) fr.dispose();;
     }
+
     public static void main(String... s) throws IOException, InterruptedException {
         new MainClass();
     }
