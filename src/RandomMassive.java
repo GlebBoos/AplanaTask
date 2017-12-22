@@ -1,23 +1,13 @@
 // Задача №4: Массив размерностью 20, заполняется случайными целыми числами от -10 до 10.
 // Найти максимальный отрицательный и минимальный положительный элементы массива. Поменять их местами.
-import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
 import java.lang.Math;
-import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import java.net.URL;
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
-//import javax.swing.ImageIcon;
-import javax.imageio.ImageIO;
-import java.io.File;
-import java.io.IOException;
 
 class RandomMassive implements ActionListener
 {
