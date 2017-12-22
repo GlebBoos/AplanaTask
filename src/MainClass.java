@@ -38,7 +38,7 @@ public class MainClass extends JFrame implements ActionListener
 
 
             try {
-                fr.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("5.png")))));
+                fr.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("6.png")))));
             } catch (IOException e) {
                 e.printStackTrace();
             }
