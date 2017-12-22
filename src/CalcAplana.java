@@ -8,7 +8,9 @@ import java.net.URL;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 //import javax.swing.ImageIcon;
-
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 class CalcAplana implements ActionListener
 {
@@ -24,13 +26,29 @@ class CalcAplana implements ActionListener
     CalcAplana()
     {
         //Создаем форму для калькулятора
-        f=new JFrame("Aplana.Boos Task №1");
+        f=new JFrame("Задача 1: Калькулятор");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(345,530);
-        f.setLocationRelativeTo(null); //отцентровка
+        //f.setLocationRelativeTo(null); //отцентровка
        // f.getContentPane().setBackground(new Color(153, 255, 153));
-        f.getContentPane().setBackground(new Color(0, 0, 0));
+        //f.getContentPane().setBackground(new Color(0, 0, 0));
+        //Установка экрана заливки
+        try {
+            f.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("6.png")))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        //Установка иконки
+        Image icon = Toolkit.getDefaultToolkit().getImage("4.png");
+        f.setIconImage(icon);
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            System.out.println("Error setting native LAF: " + e);
+        }
+        //Закрытие только текущего окна, а не всей программы
+        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //Создаем окно ввода данных для калькулятора
         t=new JTextField();
         t.setBounds(10,20,310,60);
@@ -39,7 +57,7 @@ class CalcAplana implements ActionListener
 
         //Лейбл для калькулятора
         l=new JLabel("gboos@aplana.com", new ImageIcon("1.png"),SwingConstants.LEFT);
-        l.setForeground(new Color(255,255,255));
+        l.setForeground(new Color(255, 128, 0));
         l.setBounds(10,450,350,30);
         f.add(l);
 
