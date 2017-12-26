@@ -1,9 +1,10 @@
 //Задача №9: Доработка задачи с подарком. Выгрузка данных из файла, запись данных в файл.
 
 import java.util.Scanner;
-//import java.io.IOException;
+import java.io.IOException;
 import java.util.ArrayList;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 class  Present5
 {
@@ -22,13 +23,18 @@ class NewYearPresent4 {
         System.out.println("2-  Удаление данных из таблицы");
         System.out.println("3-  Подсчет показателей");
         System.out.println("4-  Вывод текущей таблицы");
+        System.out.println("5-  Просмотр записей из файла");
+        System.out.println("6-  Добавление новых записей из файла");
+        System.out.println("7-  Запись текущей таблицы в файл");
         System.out.println("0-  Выход из задачи");
     }
     NewYearPresent4()
     {
-        int n=1,x;
+        int n=0,x;
         boolean f;
         f=true;
+        String line;
+
         Scanner ini = new Scanner(System.in);
         System.out.println("Введите кол-во подарков: ");
         n = ini.nextInt();
@@ -106,7 +112,30 @@ class NewYearPresent4 {
                         d = Box.id.get(i);
                         System.out.printf(" | %s | %s | %s | %s | \n", a, b, c, d);
                     }
-                    break;
+                break;
+                case 5: {
+                    BufferedReader readFromFile = null;
+                    try {
+                        readFromFile = new BufferedReader(new FileReader("FileV.txt"));
+                        System.out.println(" ");
+                        while ((line = readFromFile.readLine()) != null) {
+                            System.out.println(line);
+                        }
+                        System.out.println(" ");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        if (readFromFile != null)
+                            try {
+                                readFromFile.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                    }
+                }
+                break;
+
+
                 case 0:
                     f = false;
                     break;
