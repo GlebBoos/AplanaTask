@@ -52,8 +52,8 @@ public class MainClass extends JFrame implements ActionListener {
         z4 = new JButton("Задача 4: Расчет подарка версия 1.0");
         z5 = new JButton("Задача 5: Расчет подарка версия 2.0");
         z6 = new JButton("Задача 6: Расчет подарка версия 3.0");
-        z7 = new JButton("Задача 7: UNIT тесты для простого расчета");
-        z8 = new JButton("Задача 8: *Недоступно*");
+        z7 = new JButton("Задача 7: Расчет подарка версия 4.0");
+        z8 = new JButton("Задача 8: UNIT тесты для простого расчета");
         z0 = new JButton("Выход из программы");
 
         z1.setBounds(10, 120, 365, 20);
@@ -111,8 +111,8 @@ public class MainClass extends JFrame implements ActionListener {
         if (e.getSource() == z4) new NewYearPresent();
         if (e.getSource() == z5) new NewYearPresent2();
         if (e.getSource() == z6) new NewYearPresent3();
-        if (e.getSource() == z7) new UnitTests();
-        if (e.getSource() == z8) System.out.println("Данная задача недоступна до 25.12.2017");
+        if (e.getSource() == z7) new NewYearPresent4();
+        if (e.getSource() == z8) new UnitTests();
         if (e.getSource() == z0) fr.dispose();
     }
 
