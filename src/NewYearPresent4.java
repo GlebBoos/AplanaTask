@@ -134,7 +134,80 @@ class NewYearPresent4 {
                     }
                 }
                 break;
-
+                case 6: {
+                    BufferedReader readFromFile = null;
+                    try {
+                        readFromFile = new BufferedReader(new FileReader("FileV.txt"));
+                        System.out.println(" ");
+                        String line1 =readFromFile.readLine();
+                        char[] CharArray=line1.toCharArray();
+                        boolean flag=false;
+                        while (f)
+                        {
+                            String name1="",weight1="",price1="",id1="";
+                            int i1=0,i2=0,i3=0,i4=0;
+                            char k=' ',k1='\n';
+                            String k3=null;
+                            for (int i=0; i<CharArray.length; i++)
+                            {
+                                if (CharArray[i]==k)
+                                {
+                                    Box.name.add(name1);
+                                    i1=i+1;
+                                    break;
+                                }
+                                name1=name1+CharArray[i];
+                            }
+                            for (int i=i1; i<CharArray.length; i++)
+                            {
+                                if (CharArray[i]==k)
+                                {
+                                    Box.weight.add(weight1);
+                                    i2=i+1;
+                                    break;
+                                }
+                                weight1=weight1+CharArray[i];
+                            }
+                            for (int i=i2; i<CharArray.length; i++)
+                            {
+                                if (CharArray[i]==k)
+                                {
+                                    Box.price.add(weight1);
+                                    i3=i+1;
+                                    break;
+                                }
+                                price1=price1+CharArray[i];
+                            }
+                            for (int i=i3; i<CharArray.length; i++)
+                            {
+                                if (CharArray[i]==k1)
+                                {
+                                    Box.price.add(weight1);
+                                    i4=i+1;
+                                    break;
+                                }
+                                if (i==(CharArray.length-1))
+                                {
+                                    Box.price.add(weight1);
+                                    i4=i+1;
+                                    flag=true;
+                                    break;
+                                }
+                                id1=id1+CharArray[i];
+                            }
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        if (readFromFile != null)
+                            try {
+                                readFromFile.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                    }
+                }
+                break;
 
                 case 0:
                     f = false;
