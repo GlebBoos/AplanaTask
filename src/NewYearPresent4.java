@@ -1,10 +1,8 @@
 //Задача №9: Доработка задачи с подарком. Выгрузка данных из файла, запись данных в файл.
 
+import java.io.*;
 import java.util.Scanner;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 class  Present5
 {
@@ -75,30 +73,29 @@ class NewYearPresent4 {
                     System.out.println("Введите номер строки из таблицы, которую нужно удалить: ");
                     System.out.println(" ");
                     int j = ini2.nextInt();
-                    Box.name.remove(j-1);
-                    Box.weight.remove(j-1);
-                    Box.price.remove(j-1);
-                    Box.id.remove(j-1);
+                    Box.name.remove(j - 1);
+                    Box.weight.remove(j - 1);
+                    Box.price.remove(j - 1);
+                    Box.id.remove(j - 1);
                     n--;
                 }
                 break;
-                case 3:{
-                    double sumW=0.0,sumCost=0.0;
+                case 3: {
+                    double sumW = 0.0, sumCost = 0.0;
                     for (int i = 0; i < n; i++) {
                         try {
                             double x1 = Double.parseDouble(Box.weight.get(i));
                             double y1 = Double.parseDouble(Box.price.get(i));
-                            sumW=sumW+x1;
-                            sumCost=sumCost+y1;
-                        }
-                        catch (NumberFormatException e) {
+                            sumW = sumW + x1;
+                            sumCost = sumCost + y1;
+                        } catch (NumberFormatException e) {
                             System.err.println("Неверный формат числа");
                         }
                     }
                     System.out.println("");
                     System.out.println("");
-                    System.out.printf("Суммарный вес сладостей и всего подарка: %.2f \n",sumW);
-                    System.out.printf("Суммарная стоимость всех сладостей и всего подарка: %.2f \n",sumCost);
+                    System.out.printf("Суммарный вес сладостей и всего подарка: %.2f \n", sumW);
+                    System.out.printf("Суммарная стоимость всех сладостей и всего подарка: %.2f \n", sumCost);
                     System.out.println("");
                     System.out.println("");
                 }
@@ -112,7 +109,7 @@ class NewYearPresent4 {
                         d = Box.id.get(i);
                         System.out.printf(" | %s | %s | %s | %s | \n", a, b, c, d);
                     }
-                break;
+                    break;
                 case 5: {
                     BufferedReader readFromFile = null;
                     try {
@@ -138,82 +135,83 @@ class NewYearPresent4 {
                     BufferedReader readFromFile = null;
                     try {
                         readFromFile = new BufferedReader(new FileReader("FileV.txt"));
-                        String line1 =readFromFile.readLine();
-                        char[] CharArray=line1.toCharArray();
-                        boolean flag=false;
-                        int k4=0;
-                        while (flag)
-                        {
-                            String name1="",weight1="",price1="",id1="";
-                            int i1=0,i2=0,i3=0,i4=0;
-                            char k=' ',k1='\n';
-                            String k3=null;
-                            //boolean flag2=false;
-                            //if (flag2==false) i4=0;
-                            for (int i=k4; i<CharArray.length; i++)
-                            {
-                                if (CharArray[i]==k)
-                                {
-                                    Box.name.add(name1);
-                                    i1=i+1;
-                                    break;
-                                }
-                                name1=name1+CharArray[i];
-                            }
-                            for (int i=i1; i<CharArray.length; i++)
-                            {
-                                if (CharArray[i]==k)
-                                {
-                                    Box.weight.add(weight1);
-                                    i2=i+1;
-                                    break;
-                                }
-                                weight1=weight1+CharArray[i];
-                            }
-                            for (int i=i2; i<CharArray.length; i++)
-                            {
-                                if (CharArray[i]==k)
-                                {
-                                    Box.price.add(weight1);
-                                    i3=i+1;
-                                    break;
-                                }
-                                price1=price1+CharArray[i];
-                            }
-                            for (int i=i3; i<CharArray.length; i++)
-                            {
-                                if (CharArray[i]==k1)
-                                {
-                                    Box.price.add(weight1);
-                                    i4=i+1;
-                                    //flag2=true;
-                                    break;
-                                }
-                                if (i==(CharArray.length-1))
-                                {
-                                    Box.price.add(weight1);
-                                    i4=i+1;
-                                    flag=true;
-                                    break;
-                                }
-                                id1=id1+CharArray[i];
-                            }
-                            n++;
-                            k4=i4;
+                        String line1 = readFromFile.readLine();
+                        char[] CharArray = line1.toCharArray();
+                        boolean flag = false;
+                        String name1 = "", weight1 = "", price1 = "", id1 = "";
+                        int i1 = 0, i2 = 0, i3 = 0, i4 = 0;
+                        char k = ' ', k1 = '\n';
+                        String k3 = null;
+                        n++;
+                        for (int i = 0; i < CharArray.length; i++) {
+                            if (CharArray[i] == k) {
+                                Box.name.add(name1);
+                                i1 = i + 1;
+                                break;
+                            } else
+                                name1 = name1 + CharArray[i];
                         }
-                    } catch (IOException e) {
+                        for (int i = i1; i < CharArray.length; i++) {
+                            if (CharArray[i] == k) {
+                                Box.weight.add(weight1);
+                                i2 = i + 1;
+                                break;
+                            } else
+                                weight1 = weight1 + CharArray[i];
+                        }
+                        for (int i = i2; i < CharArray.length; i++) {
+                            if (CharArray[i] == k) {
+                                Box.price.add(price1);
+                                i3 = i + 1;
+                                break;
+                            } else
+                                price1 = price1 + CharArray[i];
+                        }
+                        for (int i = i3; i <= CharArray.length; i++) {
+                            if (i== (CharArray.length)) {
+                                Box.id.add(id1);
+                                break;
+                            } else
+                                id1 = id1 + CharArray[i];
+                        }
+                } catch(IOException e){
+                    e.printStackTrace();
+                } finally{
+                    if (readFromFile != null)
+                        try {
+                            readFromFile.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                break;
+                case 7: {
+                    BufferedWriter filewriter=null;
+                    try {
+                        filewriter = new BufferedWriter(new FileWriter("FileZ.txt"));
+                        for (int i = 0; i < n; i++) {
+                            System.out.println("");
+                            System.out.println("");
+                            System.out.printf("Данные записаны в файл");
+                            System.out.println("");
+                            System.out.println("");
+                            filewriter.write(Box.name.get(i)+ " "+ Box.weight.get(i)+" "+Box.price.get(i)+" "+Box.id.get(i)+"\n");
+                            filewriter.flush();
+                        }
+
+                    } catch(IOException e){
                         e.printStackTrace();
-                    } finally {
-                        if (readFromFile != null)
+                    } finally{
+                        if (filewriter != null)
                             try {
-                                readFromFile.close();
+                                filewriter.close();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                     }
                 }
                 break;
-
                 case 0:
                     f = false;
                     break;
