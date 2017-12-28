@@ -138,17 +138,19 @@ class NewYearPresent4 {
                     BufferedReader readFromFile = null;
                     try {
                         readFromFile = new BufferedReader(new FileReader("FileV.txt"));
-                        System.out.println(" ");
                         String line1 =readFromFile.readLine();
                         char[] CharArray=line1.toCharArray();
                         boolean flag=false;
-                        while (f)
+                        int k4=0;
+                        while (flag)
                         {
                             String name1="",weight1="",price1="",id1="";
                             int i1=0,i2=0,i3=0,i4=0;
                             char k=' ',k1='\n';
                             String k3=null;
-                            for (int i=0; i<CharArray.length; i++)
+                            //boolean flag2=false;
+                            //if (flag2==false) i4=0;
+                            for (int i=k4; i<CharArray.length; i++)
                             {
                                 if (CharArray[i]==k)
                                 {
@@ -184,6 +186,7 @@ class NewYearPresent4 {
                                 {
                                     Box.price.add(weight1);
                                     i4=i+1;
+                                    //flag2=true;
                                     break;
                                 }
                                 if (i==(CharArray.length-1))
@@ -195,6 +198,8 @@ class NewYearPresent4 {
                                 }
                                 id1=id1+CharArray[i];
                             }
+                            n++;
+                            k4=i4;
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
